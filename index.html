@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Tabla Drop Beat Visualization</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    
+    <!-- based on code by Ebram Marzouk https://codepen.io/P3R0/pen/MwgoKv -->
+    <script type="text/javascript">
+      // CONFIGURATION
+      var tabla_boles = "धा,धिन,तिन,धिन,ता,ना,ग,तुन,तेरेकेते,Dha,Dhin,Tin,Ta,Na,Ga,Tun,TeReKeTe";
+      var font_size = 75;
+      var tabla_boles_fill_style = "#FF0";
+      var tabla_boles_background_fill_style = "rgba(0, 0, 0, 0.3)";
+
+      var canvas = document.getElementById("canvas");
+      var context = canvas.getContext("2d");
+
+      // full screen mode
+      canvas.height = window.innerHeight;
+      canvas.width = window.innerWidth;
+
+      // tabla characters to use (unicode)
+      tabla_boles = tabla_boles.split(",");
+
+      var columns = canvas.width / font_size; // columns
+      var drops = [];
+      // x below is the x coordinate
+      // 1 = y co-ordinate of the drop(same for every drop initially)
+      for(var x = 0; x < columns; x++)
+      	drops[x] = 1;
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // drawing the characters
+      function draw()
+      {
+      	context.fillStyle = tabla_boles_background_fill_style;
+      	context.fillRect(0, 0, canvas.width, canvas.height);
+
+      	context.fillStyle = tabla_boles_fill_style; // getRandomColor().toString(); //"#0F0"; //green text
+      	context.font = font_size + "px arial";
+
+        // looping over drops
+      	for(var i = 0; i < drops.length; i++)
+      	{
+      		// a random tabla bole to print
+      		var text = tabla_boles[Math.floor(Math.random()*tabla_boles.length)];
+      		context.fillText(text, i*font_size, drops[i]*font_size);
+
+      		// sending the drop back to the top randomly after it has crossed the screen
+      		// adding a randomness to the reset to make the drops scattered on the Y axis
+      		if(drops[i]*font_size > canvas.height && Math.random() > 0.975)
+      			drops[i] = 0;
+
+      		// incrementing Y coordinate
+      		drops[i]++;
+      	}
+      }
+
+      setInterval(draw, 50);
+    </script>
+  </body>
+</html>
