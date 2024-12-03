@@ -75,6 +75,8 @@ No build process is required. This project is ready to use out-of-the-box.
    - Open the HTML file and update the `tabla_boles` variable in the configuration section.
 2. **How do I adjust the speed of the animation?**
    - Modify the `setInterval` function at the end of the JavaScript code. Lower values increase speed.
+3. **How do I use this animation in a movie?**
+   - Run the animation in a browser, and then record your screen using a utility like Quicktime (Mac) or other similar software.
 
 ## Contributing
 
