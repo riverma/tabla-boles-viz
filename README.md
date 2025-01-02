@@ -14,7 +14,7 @@
 
 [![Best Practices](https://img.shields.io/badge/Best%20Practices%20from-SLIM-blue)](https://nasa-ammos.github.io/slim/)
 
-<img width="1440" alt="Screenshot" src="https://github.com/user-attachments/assets/00dfd633-2d2e-4063-ae32-dcf22159a658">
+<img width="1440" alt="Screenshot" src="https://github.com/user-attachments/assets/a5a477ab-2140-44d4-a0b4-72b6beb7d117">
 
 This project provides a simple visualization of tabla beats that flow like raindrops across the screen. Designed for music enthusiasts and creative coders, this visualization is fully customizable and easy to set up.
 
