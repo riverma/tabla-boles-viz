@@ -4,8 +4,6 @@
 
 <div align="center">
 
-![](https://uri-to-your-logo-image) <!-- Replace with your logo (if applicable) -->
-
 <h1 align="center">Tabla Drop Beat Visualization</h1>
 
 </div>
@@ -14,7 +12,10 @@
 
 [![Best Practices](https://img.shields.io/badge/Best%20Practices%20from-SLIM-blue)](https://nasa-ammos.github.io/slim/)
 
-<img width="1440" alt="Screenshot" src="https://github.com/user-attachments/assets/a5a477ab-2140-44d4-a0b4-72b6beb7d117">
+<video width="600" controls>
+  <source src="sample-tabla-boles-viz-vid.mp4" type="video/mp4">
+  Your browser does not support the video tag.
+</video>
 
 This project provides a simple visualization of tabla beats that flow like raindrops across the screen. Designed for music enthusiasts and creative coders, this visualization is fully customizable and easy to set up.
 
