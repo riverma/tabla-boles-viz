@@ -7,31 +7,26 @@
   </head>
   <body>
     <canvas id="canvas"></canvas>
-    
     <!-- based on code by Ebram Marzouk https://codepen.io/P3R0/pen/MwgoKv -->
+    <img src="logo.png" id="logo" alt="Logo"> <!-- replace 'logo.png' with your image path -->
+
     <script type="text/javascript">
-      // CONFIGURATION
       var tabla_boles = "धा,धिन,तिन,धिन,ता,ना,ग,तुन,तेरेकेते,Dha,Dhin,Tin,Ta,Na,Ga,Tun,TeReKeTe";
-      var font_size = 75;
+      var font_size = 40;
       var tabla_boles_fill_style = "#FF0";
       var tabla_boles_background_fill_style = "rgba(0, 0, 0, 0.3)";
 
       var canvas = document.getElementById("canvas");
       var context = canvas.getContext("2d");
+      var logo = document.getElementById("logo");
 
-      // full screen mode
       canvas.height = window.innerHeight;
       canvas.width = window.innerWidth;
 
-      // tabla characters to use (unicode)
       tabla_boles = tabla_boles.split(",");
-
-      var columns = canvas.width / font_size; // columns
+      var columns = canvas.width / font_size;
       var drops = [];
-      // x below is the x coordinate
-      // 1 = y co-ordinate of the drop(same for every drop initially)
-      for(var x = 0; x < columns; x++)
-      	drops[x] = 1;
+      for(var x = 0; x < columns; x++) drops[x] = 1;
 
       function getRandomColor() {
         var letters = '0123456789ABCDEF';
@@ -42,33 +37,39 @@
         return color;
       }
 
-      // drawing the characters
-      function draw()
-      {
-      	context.fillStyle = tabla_boles_background_fill_style;
-      	context.fillRect(0, 0, canvas.width, canvas.height);
 
-      	context.fillStyle = tabla_boles_fill_style; // getRandomColor().toString(); //"#0F0"; //green text
-      	context.font = font_size + "px arial";
+      function draw() {
+        context.fillStyle = tabla_boles_background_fill_style;
+        context.fillRect(0, 0, canvas.width, canvas.height);
 
-        // looping over drops
-      	for(var i = 0; i < drops.length; i++)
-      	{
-      		// a random tabla bole to print
-      		var text = tabla_boles[Math.floor(Math.random()*tabla_boles.length)];
-      		context.fillText(text, i*font_size, drops[i]*font_size);
+        context.fillStyle = getRandomColor();
+        context.font = font_size + "px impact";
 
-      		// sending the drop back to the top randomly after it has crossed the screen
-      		// adding a randomness to the reset to make the drops scattered on the Y axis
-      		if(drops[i]*font_size > canvas.height && Math.random() > 0.975)
-      			drops[i] = 0;
-
-      		// incrementing Y coordinate
-      		drops[i]++;
-      	}
+        for(var i = 0; i < drops.length; i++) {
+          var text = tabla_boles[Math.floor(Math.random() * tabla_boles.length)];
+          context.fillText(text, i * font_size, drops[i] * font_size);
+          if(drops[i] * font_size > canvas.height && Math.random() > 0.975) drops[i] = 0;
+          drops[i]++;
+        }
       }
-
       setInterval(draw, 50);
+
+      function randomPositionLogo() {
+        var maxX = window.innerWidth - logo.clientWidth;
+        var maxY = window.innerHeight - logo.clientHeight;
+
+        var randomX = Math.floor(Math.random() * maxX);
+        var randomY = Math.floor(Math.random() * maxY);
+
+        logo.style.left = randomX + 'px';
+        logo.style.top = randomY + 'px';
+        logo.style.opacity = 1;
+
+        setTimeout(function() {
+          logo.style.opacity = 0;
+        }, 5000); // logo fades out after 5 seconds
+      }
+      setInterval(randomPositionLogo, 10000); // runs every 10 seconds
     </script>
   </body>
 </html>

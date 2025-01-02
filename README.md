@@ -1,3 +1,5 @@
+---
+
 <hr>
 
 <div align="center">
@@ -18,19 +20,21 @@ This project provides a simple visualization of tabla beats that flow like raind
 
 ## Features
 
-* Visual representation of tabla beats
-* Customizable tabla characters, font size, and colors
-* Responsive full-screen visualization
-* Lightweight and no extra JS frameworks involved - single HTML page app with a CSS file
+- Visual representation of tabla beats
+- Customizable tabla characters, font size, and colors
+- Responsive full-screen visualization
+- Dynamic color changes for each beat
+- Logo that randomly appears and fades away
+- Lightweight and no extra JS frameworks involved - single HTML page app with a CSS file
 
 ## Contents
 
-* [Quick Start](#quick-start)
-* [Changelog](#changelog)
-* [FAQ](#frequently-asked-questions-faq)
-* [Contributing Guide](#contributing)
-* [License](#license)
-* [Support](#support)
+- [Quick Start](#quick-start)
+- [Changelog](#changelog)
+- [FAQ](#frequently-asked-questions-faq)
+- [Contributing Guide](#contributing)
+- [License](#license)
+- [Support](#support)
 
 ## Quick Start
 
@@ -45,19 +49,21 @@ This guide provides a quick way to get started with the Tabla Drop Beat Visualiz
 
 1. Clone or download this repository to your local machine.
 2. Ensure the HTML file and CSS file are in the same directory.
-3. Open the `index.html` file in your web browser.
+3. Place your desired logo image in the same directory and update the HTML to point to its path.
+4. Open the `index.html` file in your web browser.
 
 ### Run Instructions
 
 1. Double-click the `index.html` file to open it in your browser.
 2. The visualization will start immediately.
-3. Enjoy the flowing tabla beat visuals!
+3. Enjoy the flowing tabla beat visuals and watch the logo randomly appear and fade.
 
 ### Usage Examples
 
-* Replace the `tabla_boles` configuration in the HTML file to display different characters.
-* Adjust the `font_size` variable to change the size of the tabla characters.
-* Modify the CSS file to customize the background color and other styling.
+- Replace the `tabla_boles` configuration in the HTML file to display different characters.
+- Adjust the `font_size` variable to change the size of the tabla characters.
+- Modify the CSS file to customize the background color and other styling.
+- Update the `logo.png` path to use a custom logo image.
 
 ### Build Instructions (if applicable)
 
@@ -67,16 +73,19 @@ No build process is required. This project is ready to use out-of-the-box.
 
 1. Verify that the `index.html` file opens correctly in a browser.
 2. Customize the configuration variables in the HTML file and reload the page to see the changes.
-3. Test on multiple browsers to ensure compatibility.
+3. Test the logo visibility by observing its appearance every 10 seconds.
+4. Test on multiple browsers to ensure compatibility.
 
 ## Frequently Asked Questions (FAQ)
 
 1. **How do I change the tabla characters?**
-   - Open the HTML file and update the `tabla_boles` variable in the configuration section.
+   - Open the HTML file and update the `tabla_boles` variable in the JavaScript section.
 2. **How do I adjust the speed of the animation?**
-   - Modify the `setInterval` function at the end of the JavaScript code. Lower values increase speed.
-3. **How do I use this animation in a movie?**
-   - Run the animation in a browser, and then record your screen using a utility like Quicktime (Mac) or other similar software.
+   - Modify the `setInterval` function controlling the `draw` method. Lower values increase speed.
+3. **How do I replace the logo?**
+   - Place your logo image in the project directory and update the `<img>` tag's `src` attribute to the correct path.
+4. **How do I change the logo fade duration?**
+   - Update the `setTimeout` function inside the `randomPositionLogo` method to modify the fade-out time.
 
 ## Contributing
 
@@ -92,4 +101,4 @@ See our [LICENSE](LICENSE) for license information.
 
 For questions or support, contact the maintainers:
 
-* [@riverma](https://github.com/riverma)
+- [@riverma](https://github.com/riverma)
